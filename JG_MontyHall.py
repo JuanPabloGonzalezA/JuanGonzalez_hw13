@@ -24,7 +24,7 @@ def finish_game(lista, choice, change):
 	else:#si no quiere cambiar
 		return lista[choice]#retorna en choice
 
-N=100
+N=10000
 cambia=np.zeros(N).astype(str)#array de strings que guarda el resultado si cambia
 nocambia=np.zeros(N).astype(str)#arrat de strings que guarda los resultados si no cambia
 for i  in range(N):
@@ -33,5 +33,5 @@ for i  in range(N):
 	lista=reveal_door(lista,choice)#modifico la lista revelando la puerta con GOAT_MONTY
 	cambia[i]=finish_game(lista,choice,True)#si cambia pues le bota el resutado si cambia
 	nocambia[i]=finish_game(lista,choice,False)#al reves
-print 'Probabilidad de obtener el premio cuando NO hubo cambio de puerta: '+str(len(nocambia[nocambia=='car'])/100.0)
-print 'Probabilidad de obtener el premio cuando SI hubo cambio de puerta: '+str(len(cambia[cambia=='car'])/100.0)
+print 'Probabilidad de obtener el premio cuando NO hubo cambio de puerta: '+str(1.0*len(nocambia[nocambia=='car'])/(1.0*N))
+print 'Probabilidad de obtener el premio cuando SI hubo cambio de puerta: '+str(1.0*len(cambia[cambia=='car'])/(1.0*N))
